@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:translator/translator.dart';
@@ -25,9 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
     'Bulgarian': 'bg',
     'Catalan': 'ca',
     'Cebuano': 'ceb',
-    'Chinese': 'zh',
-    'Chinese (Simplified)': 'zh-CN',
-    'Chinese (Traditional)': 'zh-TW',
     'Corsican': 'co',
     'Croatian': 'hr',
     'Czech': 'cs',
@@ -50,9 +46,6 @@ class _HomeScreenState extends State<HomeScreen> {
     'Bulgarian',
     'Catalan',
     'Cebuano',
-    'Chinese',
-    'Chinese (Simplified)',
-    'Chinese (Traditional)',
     'Corsican',
     'Croatian',
     'Czech',
@@ -67,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController languageController = TextEditingController();
 
   void translate(String src, String dest, String input) async{
-    GoogleTranslator translator = new GoogleTranslator();
+    GoogleTranslator translator =  GoogleTranslator();
     var translation = await translator.translate(input, from: src, to: dest);
     setState(() {
       output = translation.text.toString();
@@ -100,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          SizedBox(height: 30,),
+          const SizedBox(height: 30,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -119,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
                       spreadRadius: 2, // Extent of shadow spread
                       blurRadius: 8,   // How soft the shadow is
-                      offset: Offset(1, 1), // Position of shadow (x, y)
+                      offset: const Offset(1, 1), // Position of shadow (x, y)
                     ),
                   ],
                 ),
@@ -141,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       dropdownColor: Colors.white,
                       underline: const SizedBox.shrink(),
                       items: languages.map((String dropDownStringItem){
-                        return DropdownMenuItem(child: Text(dropDownStringItem), value: dropDownStringItem,);
+                        return DropdownMenuItem(value: dropDownStringItem, child: Text(dropDownStringItem), );
                       }).toList(),
                       onChanged: (String? value) {
                           setState(() {
@@ -152,11 +145,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              SizedBox(width: 5,),
+              const SizedBox(width: 5,),
               Container(
                 width: 55,
                   height: 55,
-                  child: Icon(Icons.compare_arrows_outlined, color: Color(0xFF0141D8),),
+
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
@@ -169,12 +162,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
                       spreadRadius: 2, // Extent of shadow spread
                       blurRadius: 8,   // How soft the shadow is
-                      offset: Offset(1, 1), // Position of shadow (x, y)
+                      offset: const Offset(1, 1), // Position of shadow (x, y)
                     ),
                   ],
                 ),
+                child: const Icon(Icons.compare_arrows_outlined, color: Color(0xFF0141D8),),
               ),
-              SizedBox(width: 5,),
+              const SizedBox(width: 5,),
               Container(
                 width: 200,
                 height: 55,
@@ -190,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
                       spreadRadius: 2, // Extent of shadow spread
                       blurRadius: 8,   // How soft the shadow is
-                      offset: Offset(1,1), // Position of shadow (x, y)
+                      offset: const Offset(1,1), // Position of shadow (x, y)
                     ),
                   ],
                 ),
@@ -211,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       dropdownColor: Colors.white,
                       underline: const SizedBox.shrink(),
                       items: languages.map((String dropDownStringItem){
-                        return DropdownMenuItem(child: Text(dropDownStringItem), value: dropDownStringItem,);
+                        return DropdownMenuItem( value: dropDownStringItem,child: Text(dropDownStringItem),);
                       }).toList(),
                       onChanged: (String? value) {
                         setState(() {
@@ -224,12 +218,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 500,
+                width: 480,
                 height: 220,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -243,21 +237,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
                       spreadRadius: 2, // Extent of shadow spread
                       blurRadius: 8,   // How soft the shadow is
-                      offset: Offset(1,1), // Position of shadow (x, y)
+                      offset: const Offset(1,1), // Position of shadow (x, y)
                     ),
                   ],
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: TextFormField(
-                      cursorColor:Color(0xFF0141D8),
+                    controller: languageController,
+                      cursorColor: const Color(0xFF0141D8),
                     autofocus: false,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
                     ),
                     maxLines: null,
                     expands: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,
                     ),
@@ -266,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
             ],
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -295,12 +292,12 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ],
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 500,
+                width: 480,
                 height: 220,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -314,13 +311,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
                       spreadRadius: 2, // Extent of shadow spread
                       blurRadius: 8,   // How soft the shadow is
-                      offset: Offset(1,1), // Position of shadow (x, y)
+                      offset: const Offset(1,1), // Position of shadow (x, y)
                     ),
                   ],
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Text('$output'),
+                  child: Text(
+                      output,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 ),
               ),
             ],
