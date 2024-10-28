@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:translator/translator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,14 +11,76 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var languages = ['Bangla', 'English', 'Hindi'];
+  Map<String, String> languageCodes = {
+    'Afrikaans': 'af',
+    'Albanian': 'sq',
+    'Amharic': 'am',
+    'Arabic': 'ar',
+    'Armenian': 'hy',
+    'Azerbaijani': 'az',
+    'Basque': 'eu',
+    'Belarusian': 'be',
+    'Bengali': 'bn',
+    'Bosnian': 'bs',
+    'Bulgarian': 'bg',
+    'Catalan': 'ca',
+    'Cebuano': 'ceb',
+    'Chinese': 'zh',
+    'Chinese (Simplified)': 'zh-CN',
+    'Chinese (Traditional)': 'zh-TW',
+    'Corsican': 'co',
+    'Croatian': 'hr',
+    'Czech': 'cs',
+    'Danish': 'da',
+    'Dutch': 'nl',
+    'English': 'en',
+  };
+  // List of languages
+  var languages = [
+    'Afrikaans',
+    'Albanian',
+    'Amharic',
+    'Arabic',
+    'Armenian',
+    'Azerbaijani',
+    'Basque',
+    'Belarusian',
+    'Bengali',
+    'Bosnian',
+    'Bulgarian',
+    'Catalan',
+    'Cebuano',
+    'Chinese',
+    'Chinese (Simplified)',
+    'Chinese (Traditional)',
+    'Corsican',
+    'Croatian',
+    'Czech',
+    'Danish',
+    'Dutch',
+    'English',
+  ];
+
   var originLanguage = 'From';
   var destinationLanguage = 'To';
   var output = '';
   TextEditingController languageController = TextEditingController();
 
-  void translate(String src, String dest, String input){
+  void translate(String src, String dest, String input) async{
+    GoogleTranslator translator = new GoogleTranslator();
+    var translation = await translator.translate(input, from: src, to: dest);
+    setState(() {
+      output = translation.text.toString();
+    });
 
+    if(src=='--' || dest == '--'){
+      setState(() {
+        output = 'Failed to Translate';
+      });
+    }
+  }
+  String? getLanguageCode(String language){
+    return languageCodes[language] ?? '--' ;
   }
   @override
   Widget build(BuildContext context) {
@@ -42,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                width: 150,
+                width: 200,
                 height: 55,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -113,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(width: 5,),
               Container(
-                width: 150,
+                width: 200,
                 height: 55,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -166,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 450,
+                width: 500,
                 height: 220,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -214,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 50,
                   child: ElevatedButton(
                       onPressed: (){
-
+                        translate(getLanguageCode(originLanguage) ?? '--', getLanguageCode(destinationLanguage) ?? '--', languageController.text.toString());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF0141D8),
@@ -237,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 450,
+                width: 500,
                 height: 220,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -257,22 +320,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: TextFormField(
-                    cursorColor:Color(0xFF0141D8),
-                    autofocus: false,
-                    style: TextStyle(
-                      color: Colors.black,
-                    ),
-                    maxLines: null,
-                    expands: true,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.zero,
-                    ),
-                  ),
+                  child: Text('$output'),
                 ),
               ),
-
             ],
           ),
         ],
