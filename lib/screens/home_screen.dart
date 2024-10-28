@@ -16,6 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
   var output = '';
   TextEditingController languageController = TextEditingController();
 
+  void translate(String src, String dest, String input){
+
+  }
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -158,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -198,10 +201,38 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-
             ],
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 130,
+                  height: 50,
+                  child: ElevatedButton(
+                      onPressed: (){
+
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF0141D8),
+                        foregroundColor: Colors.white,
+                      ),
+                      child: const Text(
+                          'Translate',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                  ),
+                ),
+              )
+            ],
+          ),
+          SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
