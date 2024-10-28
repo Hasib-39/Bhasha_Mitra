@@ -183,16 +183,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Text(
-                    'Hello',
+                  child: TextFormField(
+                      cursorColor:Color(0xFF0141D8),
+                    autofocus: false,
                     style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
                       color: Colors.black,
+                    ),
+                    maxLines: null,
+                    expands: true,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.zero,
+                    ),
                     ),
                   ),
                 ),
-              ),
+
             ],
           ),
           SizedBox(height: 20,),
@@ -218,18 +224,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                child: const  Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Text(
-                    'World',
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: TextFormField(
+                    cursorColor:Color(0xFF0141D8),
+                    autofocus: false,
                     style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
                       color: Colors.black,
+                    ),
+                    maxLines: null,
+                    expands: true,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.zero,
                     ),
                   ),
                 ),
               ),
+
             ],
           ),
         ],
