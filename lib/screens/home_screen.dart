@@ -91,245 +91,247 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         elevation: 0,
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 30,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                width: 200,
-                height: 55,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
-                      spreadRadius: 2, // Extent of shadow spread
-                      blurRadius: 8,   // How soft the shadow is
-                      offset: const Offset(1, 1), // Position of shadow (x, y)
-                    ),
-                  ],
-                ),
-
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: DropdownButton(
-                        focusColor: Colors.blueGrey,
-                        iconDisabledColor: Theme.of(context).primaryColor,
-                      hint: Text(
-                        originLanguage,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
-                      dropdownColor: Colors.white,
-                      underline: const SizedBox.shrink(),
-                      items: languages.map((String dropDownStringItem){
-                        return DropdownMenuItem(value: dropDownStringItem, child: Text(dropDownStringItem), );
-                      }).toList(),
-                      onChanged: (String? value) {
-                          setState(() {
-                            originLanguage = value!;
-                          });
-                      },
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 5,),
-              Container(
-                width: 55,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 30,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  width: 150,
                   height: 55,
-
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
-                      spreadRadius: 2, // Extent of shadow spread
-                      blurRadius: 8,   // How soft the shadow is
-                      offset: const Offset(1, 1), // Position of shadow (x, y)
-                    ),
-                  ],
-                ),
-                child: const Icon(Icons.compare_arrows_outlined, color: Color(0xFF0141D8),),
-              ),
-              const SizedBox(width: 5,),
-              Container(
-                width: 200,
-                height: 55,
-                decoration: BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
                       color: Colors.grey,
                       width: 1,
                     ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
-                      spreadRadius: 2, // Extent of shadow spread
-                      blurRadius: 8,   // How soft the shadow is
-                      offset: const Offset(1,1), // Position of shadow (x, y)
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
+                        spreadRadius: 2, // Extent of shadow spread
+                        blurRadius: 8,   // How soft the shadow is
+                        offset: const Offset(1, 1), // Position of shadow (x, y)
+                      ),
+                    ],
+                  ),
+        
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: DropdownButton(
+                          focusColor: Colors.blueGrey,
+                          iconDisabledColor: Theme.of(context).primaryColor,
+                        hint: Text(
+                          originLanguage,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        dropdownColor: Colors.white,
+                        underline: const SizedBox.shrink(),
+                        items: languages.map((String dropDownStringItem){
+                          return DropdownMenuItem(value: dropDownStringItem, child: Text(dropDownStringItem), );
+                        }).toList(),
+                        onChanged: (String? value) {
+                            setState(() {
+                              originLanguage = value!;
+                            });
+                        },
+                      ),
                     ),
-                  ],
+                  ),
                 ),
-                child: Center(
+                const SizedBox(width: 5,),
+                Container(
+                  width: 55,
+                    height: 55,
+        
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
+                        spreadRadius: 2, // Extent of shadow spread
+                        blurRadius: 8,   // How soft the shadow is
+                        offset: const Offset(1, 1), // Position of shadow (x, y)
+                      ),
+                    ],
+                  ),
+                  child: const Icon(Icons.compare_arrows_outlined, color: Color(0xFF0141D8),),
+                ),
+                const SizedBox(width: 5,),
+                Container(
+                  width: 150,
+                  height: 55,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 1,
+                      ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
+                        spreadRadius: 2, // Extent of shadow spread
+                        blurRadius: 8,   // How soft the shadow is
+                        offset: const Offset(1,1), // Position of shadow (x, y)
+                      ),
+                    ],
+                  ),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: DropdownButton(
+                        focusColor: Colors.blueGrey,
+                        iconDisabledColor: Theme.of(context).primaryColor,
+                        hint: Text(
+                          destinationLanguage,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        dropdownColor: Colors.white,
+                        underline: const SizedBox.shrink(),
+                        items: languages.map((String dropDownStringItem){
+                          return DropdownMenuItem( value: dropDownStringItem,child: Text(dropDownStringItem),);
+                        }).toList(),
+                        onChanged: (String? value) {
+                          setState(() {
+                            destinationLanguage = value!;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 400,
+                  height: 220,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
+                        spreadRadius: 2, // Extent of shadow spread
+                        blurRadius: 8,   // How soft the shadow is
+                        offset: const Offset(1,1), // Position of shadow (x, y)
+                      ),
+                    ],
+                  ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: DropdownButton(
-                      focusColor: Colors.blueGrey,
-                      iconDisabledColor: Theme.of(context).primaryColor,
-                      hint: Text(
-                        destinationLanguage,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                    padding: const EdgeInsets.all(20.0),
+                    child: TextFormField(
+                      controller: languageController,
+                        cursorColor: const Color(0xFF0141D8),
+                      autofocus: false,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
                       ),
-                      dropdownColor: Colors.white,
-                      underline: const SizedBox.shrink(),
-                      items: languages.map((String dropDownStringItem){
-                        return DropdownMenuItem( value: dropDownStringItem,child: Text(dropDownStringItem),);
-                      }).toList(),
-                      onChanged: (String? value) {
-                        setState(() {
-                          destinationLanguage = value!;
-                        });
-                      },
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 480,
-                height: 220,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
-                      spreadRadius: 2, // Extent of shadow spread
-                      blurRadius: 8,   // How soft the shadow is
-                      offset: const Offset(1,1), // Position of shadow (x, y)
-                    ),
-                  ],
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: TextFormField(
-                    controller: languageController,
-                      cursorColor: const Color(0xFF0141D8),
-                    autofocus: false,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                    ),
-                    maxLines: null,
-                    expands: true,
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.zero,
-                    ),
-                    ),
-                  ),
-                ),
-            ],
-          ),
-          const SizedBox(height: 10,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: 130,
-                  height: 50,
-                  child: ElevatedButton(
-                      onPressed: (){
-                        translate(getLanguageCode(originLanguage) ?? '--', getLanguageCode(destinationLanguage) ?? '--', languageController.text.toString());
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF0141D8),
-                        foregroundColor: Colors.white,
+                      maxLines: null,
+                      expands: true,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.zero,
                       ),
-                      child: const Text(
-                          'Translate',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 130,
+                    height: 50,
+                    child: ElevatedButton(
+                        onPressed: (){
+                          translate(getLanguageCode(originLanguage) ?? '--', getLanguageCode(destinationLanguage) ?? '--', languageController.text.toString());
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF0141D8),
+                          foregroundColor: Colors.white,
                         ),
-                      )
-                  ),
-                ),
-              )
-            ],
-          ),
-          const SizedBox(height: 10,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 480,
-                height: 220,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
-                      spreadRadius: 2, // Extent of shadow spread
-                      blurRadius: 8,   // How soft the shadow is
-                      offset: const Offset(1,1), // Position of shadow (x, y)
-                    ),
-                  ],
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Text(
-                      output,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
+                        child: const Text(
+                            'Translate',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
                     ),
                   ),
+                )
+              ],
+            ),
+            const SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 400,
+                  height: 330,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
+                        spreadRadius: 2, // Extent of shadow spread
+                        blurRadius: 8,   // How soft the shadow is
+                        offset: const Offset(1,1), // Position of shadow (x, y)
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                        output,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
